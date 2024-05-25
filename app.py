@@ -30,13 +30,8 @@ def get_pokemon_data(initial_text):
     image_bytes = query_huggingface({"inputs": initial_text})
     if image_bytes is None:
         return None, None, None
-
-    # Save the response content to a file for inspection (debugging step)
-    with open("response_content.bin", "wb") as f:
-        f.write(image_bytes)
-
+    
     try:
-        # Attempt to open the image using PIL
         image = Image.open(io.BytesIO(image_bytes))
         image_path = "generated_image.jpg"
         image.save(image_path, "JPEG", quality=100)
@@ -48,7 +43,7 @@ def get_pokemon_data(initial_text):
     try:
         response = model.generate_content([
             f"Generate a unique and creative name for this Pokémon. "
-            f"Create a detailed description for a new Pokémon named {initial_text}. "
+            f"Create a detailed description for a new Pokémon named. "
             f"Include its type, abilities, and a brief backstory.",
             image
         ], stream=True)
