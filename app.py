@@ -69,7 +69,7 @@ if st.button("Generate"):
 
         if pokemon_name and pokemon_image_path and pokemon_description:
             # Display Pokémon name
-            st.write(f"Generated Pokémon: {pokemon_name}")
+            st.write(pokemon_description)
 
             # Load and display Pokémon image from local path
             try:
@@ -79,7 +79,7 @@ if st.button("Generate"):
                 st.error("Image file not found. Please check the path.")
 
             # Display Pokémon description
-            st.write(pokemon_description)
+            
         else:
             st.error("Failed to generate Pokémon data.")
     else:
