@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import io
 from PIL import Image
-from google.generativeai import generativeai as genai
+import google.generativeai as genai
 import google.ai.generativelanguage as glm
 import textwrap
 
